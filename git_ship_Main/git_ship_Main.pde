@@ -78,7 +78,6 @@ void draw(){
   
   if(viewscreen) {
     //begin attitude control
-    if(!attitudeControl) beginDrift();
     
     //starfield simulation
     for(int i = 0; i < stars. length; i++){
@@ -149,16 +148,6 @@ void dropOutOfWarp(){
   earth = new Planet(rndX, rndY, random(50, 375));
   earth.sliders();
   location = "sector " + int(x) + "-" + int(y);
-}
-
-/////////////////////////////////////////////////////
-///////////engineering working party/////////////////
-/////////////////////////////////////////////////////
-void beginDrift(){
-  drift += 0.01;
-  pushMatrix();
-  translate(width/2, height/2);
-  rotate(drift);
 }
 
 void endDrift(){
