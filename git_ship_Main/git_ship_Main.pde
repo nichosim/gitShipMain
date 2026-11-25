@@ -100,10 +100,14 @@ void init(){
   
   //checksum
   healthbar = new Checksum();
+  healthbar.checksum += pow(2, 2);
   //starfield simulation
   for(int i = 0; i < stars. length; i++){
     stars[i] = new Star();
   }
+  char[] c = binary(healthbar.checksum).toCharArray();
+  c[c.length - 3] = '1';
+  healthbar.checksum = unbinary(new String(c));
   //cargo
   loadCargo();
   println("Cargo manifest:");
@@ -118,9 +122,8 @@ void init(){
   planets[0] = new Planet(0.9*width, 0.7*height, 180, 50, 50, 5);
   //dialogue
   person = new Person();
-  char[] q = binary(healthbar.checksum).toCharArray();
-  q[q.length - 7] = '1';
   healthbar.checksum = unbinary(new String(q));
+  healthbar.checksum = unbinary(new String(q));  
   //junk
   junk = new Junk();
   
